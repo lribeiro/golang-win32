@@ -295,7 +295,7 @@ func (e *PullEventProvider) FetchEvents(channels []string, flag int) (c chan *XM
 		// If we reuse name, we reuse event, even across processes
 		eUUID, err := win32.UUID()
 		if err != nil {
-			log.LogErrorAndExit(fmt.Errorf("Cannot generate UUID: %s", err))
+			log.Abort(0,fmt.Errorf("Cannot generate UUID: %s", err))
 		}
 
 		log.Debugf("Windows Event UUID (Channel:%s): %s", channel, eUUID)
